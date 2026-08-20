@@ -94,9 +94,7 @@ fun  GridCard(topic: Topic){
             .background(
                 colorResource(id = R.color.light_purple),
                 shape = RoundedCornerShape(8.dp)
-            )
-        ,
-
+            ),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -123,7 +121,6 @@ fun  GridCard(topic: Topic){
             ) {
                 Text(
                     text = stringResource(topic.titleResourceId),
-                    //                modifier = Modifier.padding(16.dp),
                     modifier = Modifier.padding(end = 16.dp),
                     style = MaterialTheme.typography.bodyMedium
                 )
@@ -136,7 +133,7 @@ fun  GridCard(topic: Topic){
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = stringResource(topic.courseCount),
+                        text = topic.courseCount.toString(),
                         style = MaterialTheme.typography.labelMedium
                     )
                 }
