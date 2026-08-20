@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -53,7 +54,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             GridLabTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize()
+                        .safeDrawingPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     TopicApp()
@@ -77,7 +79,7 @@ fun GridList(topic: List<Topic>, modifier: Modifier = Modifier) {
         contentPadding = PaddingValues(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize(),
     ) {
         items(count = topic.size) { index ->
             GridCard(topic = topic[index])
@@ -129,7 +131,6 @@ fun  GridCard(topic: Topic){
                     Icon(
                         imageVector = Icons.Filled.Audiotrack,
                         contentDescription = "Add",
-//                        modifier = Modifier.size()
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
